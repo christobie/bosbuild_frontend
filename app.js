@@ -8,10 +8,8 @@ $(document).ready(function(){
       url: 'http://localhost:3000/buildings/search/' + $('#search-building-name').val(),
       dataType: 'json',
       method: 'GET'
-
     }).done(function(building_found){
       var html = '<h3>' + building_found.name + '</h3><br>'
-      html = html + '<ul>'
       building_found.pictures.forEach(function(picture_data){
         // building an li with an image tag inside it.
         html =  html + "<li id='" + picture_data.id + "'>" + picture_data.img_tag + "</li>";
@@ -24,7 +22,6 @@ $(document).ready(function(){
     });
   })
 });
-
 
 // GET all the pictures from the backend server
 function showAllPictures(){
@@ -39,7 +36,6 @@ function showAllPictures(){
     pictures_data.forEach(function(picture_data){
       // building an li with an image tag inside it.
       var html = "<li id='" + picture_data.id + "'>" + picture_data.img_tag + "</li>";
-
       $('#pictures').append(html);
     })
   })
